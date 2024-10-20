@@ -1,0 +1,55 @@
+@import url("https://ruri.info/tool/css/twshadowtxtComment.css");
+
+/* コメント欄全体にフェードをかける */
+body {
+  background-color: rgba(0, 0, 0, 0) !important; /* 背景を透過 */
+  mask-image: linear-gradient(to bottom, transparent 5%, black 30%, black 70%, transparent 95%);
+  -webkit-mask-image: linear-gradient(to bottom, transparent 5%, black 30%, black 70%, transparent 95%);
+  overflow: hidden; /* スクロールバーを非表示にする */
+}
+
+/* コメント自体のスタイル */
+.chat-line__message {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end; /* 右揃えに修正 */
+  margin-bottom: 5px;
+  padding: 5px;
+  position: relative;
+  line-height: 1.2; /* 行間を詰める */
+}
+
+/* 名前部分をコメントの上に表示 */
+.chat-line__message .chat-author__display-name {
+  font-weight: bold;
+  color: #fff;
+  margin-bottom: 2px; /* 名前とコメントの間隔 */
+  text-align: right; /* 右揃え */
+  position: relative;
+  z-index: 2;
+}
+
+/* コメント部分のスタイル */
+.chat-line__message .text-fragment {
+  color: #ddd;
+  text-align: right; /* 右揃え */
+  margin-top: 0;
+  position: relative;
+  z-index: 2;
+  line-height: 1.2; /* 行間を詰める */
+}
+
+/* 不要な要素を非表示にする */
+.chat-line__username-container, .chat-line__message--deleted, .badges {
+  display: none !important;
+}
+
+/* スクロールバーを非表示にする */
+::-webkit-scrollbar {
+  display: none;
+}
+
+/* 名前部分のaria-hidden属性の非表示を無効化 */
+span[aria-hidden="true"] {
+  display: inline !important;
+}
